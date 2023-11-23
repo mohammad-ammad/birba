@@ -3,7 +3,7 @@ import LandingSpeakerCard from "@/components/LandingSpeakerCard";
 import { agenda_hero_dto } from "@/lib/agenda_hero_dto";
 import { speakers_hero_dto } from "@/lib/speakers_hero_dto";
 import Image from "next/image";
-
+import FloorMap from "./floor-map/page";
 export default function Home() {
   return (
     <div className="pt-20">
@@ -44,6 +44,9 @@ export default function Home() {
         }
       </div>
       </section>
+      <div>
+        <FloorMap/>
+      </div>
     </div>
   )
 }
