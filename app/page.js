@@ -45,12 +45,7 @@ export default function Home() {
         }
       </div>
       </section>
-      <div>
-        <FloorMap/>
-      </div>
-      <div>
-        <Gallery/>
-      </div>
+      
     </div>
   )
 }
