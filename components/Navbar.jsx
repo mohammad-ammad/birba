@@ -15,7 +15,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <nav className="md:px-10 py-5 bg-white fixed w-full hidden lg:flex justify-between items-center">
+      <nav className="md:px-10 py-5 bg-white fixed w-full hidden lg:flex justify-between items-center z-50">
         <div>
           <Link href="/">
             <Image src="/assets/logo.png" width={80} height={80} />
@@ -46,7 +46,7 @@ const Navbar = () => {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
+                <Link href="/speakers" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     Speakers
                   </NavigationMenuLink>
