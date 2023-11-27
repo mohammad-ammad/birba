@@ -1,3 +1,6 @@
+'use client';
+import React, { useState } from "react";
+
 const bannerStyles = {
   backgroundImage: "url('/assets/r2.png')",
   backgroundSize: "cover",
@@ -19,6 +22,50 @@ const cmStyles = {
   height: "550px",
 };
 export default function ContactUs() {
+  const [formObj, setFormObj] = useState({
+    fullName:"",
+    email:"",
+    message:""
+  });
+
+  const onchangeHandler = (e) => {
+    setFormObj({
+      ...formObj,
+      [e.target.name]:e.target.value
+    })
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: `FullName: ${formObj.fullName}, Email:${formObj.email}, Message:${formObj.message}` }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to submit the form');
+      }
+
+      if(response.ok){
+        setFormObj({
+          fullName:"",
+          email:"",
+          message:""
+        })
+
+        alert("email sent successfully");
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error.message);
+    }
+  }
+  
+  
   return (
     <div className="pt-20">
       <div style={bannerStyles}>
@@ -127,7 +174,7 @@ export default function ContactUs() {
               </div>
               <div className="w-[60%] flex justify-start items-center">
                 <div className="bg-black w-[1px] h-[300px]"></div>
-                <form className="px-5">
+                <form className="px-5" onSubmit={submitHandler}>
                   <div className="flex justify-start items-start flex-col my-5">
                     <label className="text-black text-sm font-semibold">
                       Full Name
@@ -135,6 +182,9 @@ export default function ContactUs() {
                     <input
                       type="text"
                       placeholder="Write your full name"
+                      name="fullName"
+                      value={formObj.fullName}
+                      onChange={(e)=>onchangeHandler(e)}
                       className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
                     />
                   </div>
@@ -145,6 +195,9 @@ export default function ContactUs() {
                     <input
                       type="email"
                       placeholder="Write your Email"
+                      name="email"
+                      value={formObj.email}
+                      onChange={(e)=>onchangeHandler(e)}
                       className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
                     />
                   </div>
@@ -156,6 +209,9 @@ export default function ContactUs() {
                       rows={2}
                       cols={5}
                       placeholder="Write your message here"
+                      name="message"
+                      value={formObj.message}
+                      onChange={(e)=>onchangeHandler(e)}
                       className="w-full outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
                     ></textarea>
                   </div>
@@ -178,7 +234,7 @@ export default function ContactUs() {
         className="block md:hidden px-5 my-5"
       >
         <div className="p-5 rounded-md" style={{ boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.15)" }}>
-          <form className="px-5">
+          <form className="px-5" onSubmit={submitHandler}>
             <div className="flex justify-start items-start flex-col my-5">
               <label className="text-black text-sm font-semibold">
                 Full Name
@@ -186,6 +242,9 @@ export default function ContactUs() {
               <input
                 type="text"
                 placeholder="Write your full name"
+                name="fullName"
+                value={formObj.fullName}
+                      onChange={(e)=>onchangeHandler(e)}
                 className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
               />
             </div>
@@ -193,6 +252,9 @@ export default function ContactUs() {
               <label className="text-black text-sm font-semibold">Email</label>
               <input
                 type="email"
+                name="email"
+                value={formObj.email}
+                      onChange={(e)=>onchangeHandler(e)}
                 placeholder="Write your Email"
                 className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
               />
@@ -204,6 +266,9 @@ export default function ContactUs() {
               <textarea
                 rows={2}
                 cols={5}
+                name="message"
+                value={formObj.message}
+                      onChange={(e)=>onchangeHandler(e)}
                 placeholder="Write your message here"
                 className="w-full outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
               ></textarea>
