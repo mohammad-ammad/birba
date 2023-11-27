@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import EventDetails from "./EventDetails";
 
 const AgendaAccordian = ({ date }) => {
   return (
@@ -30,7 +31,7 @@ const AgendaAccordian = ({ date }) => {
                 </div>
             </AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+            <EventDetails/>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -46,7 +47,7 @@ const AgendaAccordian = ({ date }) => {
                 </div>
             </AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+            <EventDetails/>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="bg-[#003756]">
@@ -62,7 +63,7 @@ const AgendaAccordian = ({ date }) => {
                 </div>
             </AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+            <EventDetails/>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -78,7 +79,7 @@ const AgendaAccordian = ({ date }) => {
                 </div>
             </AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+            <EventDetails/>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-5">
@@ -94,7 +95,7 @@ const AgendaAccordian = ({ date }) => {
                 </div>
             </AccordionTrigger>
             <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
+            <EventDetails/>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
