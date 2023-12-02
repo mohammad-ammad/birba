@@ -9,11 +9,11 @@ const bannerStyles = {
 };
 export default function FloorMap() {
   return (
-    <div className="pt-20 ">
+    <div className="pt-20 bg-[#f8f8f8]">
       <div style={bannerStyles}>
         <div className="text-3xl font-bold">Floor Map</div>
       </div>
-      <div className=" md:w-[100%] flex flex-col justify-around  md:flex md:flex-row md:justify-around ">
+      <div className=" md:w-[100%] flex flex-col justify-around  md:flex md:flex-row md:justify-around md:pr-14">
           <div className="w-[300px] h-[184px] p-[10px] px-14 mx-auto border border-inherit  mt-7 md:w-[257px] md:h-[184px] md:ml-14  md:mt-[100px] md:left-[96px] md:p-[5px] md:gap-[5px] md:bg-[#FFFFFF]  md:drop-shadow-2xl md:shadow-[#000000] md:border md:border-3 md:flex md:flex-col">
             <div className="  md:w-[257px] md:h-[32px] md:top-[282px] md:left-[96px]  md:p-[10px] md:gap-[5px] md:flex md:justify-around ">
                <p className="flex justify-around p-[10px]  text-[#AE0243] font-bold md:w-[130px] md:h-[20px] md:font-[Poppins] md:font-[600] md:text-[13px] md:text-[#AE0243] ">Floor Map Sections</p>           

@@ -1,4 +1,11 @@
 import Image from "next/image";
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const bannerStyles = {
   backgroundImage: "url('/assets/r2.png')",
@@ -11,16 +18,92 @@ const bannerStyles = {
 };
 export default function Exhibitors() {
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-[#f8f8f8]">
       <div style={bannerStyles}>
         <div className="text-3xl font-bold">Exhibitors</div>
       </div>
 
       <section className="flex flex-col md:flex-row justify-center items-start gap-5 px-5 md:px-10 pt-10">
-        <div className="w-full md:w-[30%]">
-          <div
+        <div className="hidden md:block w-full md:w-[30%] bg-white">
+          <ExhibitorsFilterBox isShadow={true}/>
+        </div>
+        <div className="block md:hidden w-full">
+          <AlertDialog className="w-full">
+            <AlertDialogTrigger className="inline-flex justify-end items-center w-full">
+              <p class="text-md text-[#AE0243] cursor-pointer">Filter</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4 text-[#AE0243] cursor-pointer"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5"
+                />
+              </svg>
+            </AlertDialogTrigger>
+            <AlertDialogContent className="w-80 p-0">
+              <AlertDialogHeader>
+                <AlertDialogCancel className="border-none shadow-none inline-flex justify-end items-center hover:bg-transparent">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </AlertDialogCancel>
+                <ExhibitorsFilterBox />
+              </AlertDialogHeader>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
+        <div className="w-full md:w-[70%]">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5">
+            {"abcdefghijklmnopqrstuvwxqqq".split("").map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-start items-center bg-[#FFFFFF] rounded-md"
+                style={{ boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)" }}
+              >
+                <Image
+                  src="/assets/r3.png"
+                  width={100}
+                  height={100}
+                  className="object-cover"
+                />
+                <div>
+                  <h1 className="text-[12px] md:text-[14px] font-semibold">
+                    Green Hydrogen Summit
+                  </h1>
+                  <p className="text-[10px]">A50</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+const ExhibitorsFilterBox = ({isShadow}) => {
+  return (
+    <div
             className="p-5"
-            style={{ boxShadow: "0px 4px 18px 5px rgba(0, 0, 0, 0.1)" }}
+            style={{ boxShadow: isShadow ? "0px 4px 18px 5px rgba(0, 0, 0, 0.1)" : "", }}
           >
             <div className="flex justify-between items-center">
               <h1 className="text-sm font-bold">Refine the list</h1>
@@ -101,32 +184,5 @@ export default function Exhibitors() {
               <div></div>
             </div>
           </div>
-        </div>
-        <div className="w-full md:w-[70%]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
-            {"abcdefghijklmnopqrstuvwxqqq".split("").map((item, index) => (
-              <div
-                key={index}
-                className="flex justify-start items-center bg-[#FFFFFF] rounded-md"
-                style={{ boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)" }}
-              >
-                <Image
-                  src="/assets/r3.png"
-                  width={100}
-                  height={100}
-                  className="object-cover"
-                />
-                <div>
-                  <h1 className="text-[12px] md:text-[14px] font-semibold">
-                    Green Hydrogen Summit
-                  </h1>
-                  <p className="text-[10px]">A50</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
   );
 }

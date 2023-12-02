@@ -67,15 +67,15 @@ export default function ContactUs() {
   
   
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-[#f8f8f8]">
       <div style={bannerStyles}>
         <div className="text-3xl font-bold">Contact Us</div>
       </div>
 
-      <section className="hidden md:block md:px-48 my-10">
+      <section className="hidden md:block md:px-48 mt-10 bg-[#f8f8f8]">
         <div style={cmStyles} className="relative z-30">
           <div
-            className="w-[80%] bg-white absolute -right-1/4"
+            className="w-[600px] bg-white absolute -right-1/2"
             style={{ boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.15)" }}
           >
             <div className="flex justify-center items-center p-10 h-full">
@@ -231,9 +231,9 @@ export default function ContactUs() {
       </section>
 
       <section
-        className="block md:hidden px-5 my-5"
+        className="block md:hidden px-5 mt-5 pb-5"
       >
-        <div className="p-5 rounded-md" style={{ boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.15)" }}>
+        <div className="p-5 rounded-md bg-white" style={{ boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.15)" }}>
           <form className="px-5" onSubmit={submitHandler}>
             <div className="flex justify-start items-start flex-col my-5">
               <label className="text-black text-sm font-semibold">
