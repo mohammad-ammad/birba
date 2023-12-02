@@ -10,7 +10,10 @@ const EventCard = () => {
   return (
     <div className="bg-[#fcfcfceb] py-3 px-5 rounded-md">
       <div className="py-10">
-        <h1 className="text-black text-lg font-bold">Green Hydrogen Summit</h1>
+        <div className="inline-flex justify-between items-center w-full">
+          <h1 className="text-black text-lg font-bold">GHSO 2023</h1>
+          <button className="bg-[#AE0243] text-white text-sm px-4 py-1 rounded-md">Join Us</button>
+        </div>
         <h2 className="text-black text-sm font-bold mt-10">Summary</h2>
         <p className="text-[12px] text-justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et

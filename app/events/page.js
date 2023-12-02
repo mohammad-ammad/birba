@@ -1,8 +1,10 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AgendaAccordian from "@/components/AgendaAccordian";
 import EventCard from "@/components/EventCard";
+import { useState } from "react";
 const bannerStyles = {
   backgroundImage: "url('/assets/r2.png')",
   backgroundSize: "cover",
@@ -16,14 +18,15 @@ const borderBottom = {
   borderBottom: "3px solid #AE0243",
 };
 export default function Events() {
+  const [tab, setTab] = useState("11th December 2023");
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-[#f8f8f8]">
       <div style={bannerStyles}>
         <div className="text-3xl font-bold">Green Hydrogen Summit</div>
       </div>
 
       <section className="flex flex-col md:flex-row justify-center items-start gap-5 px-5 md:px-10 pt-10">
-        <div className="w-full md:w-[30%]">
+        <div className="w-full md:w-[30%] bg-white">
           <div
             className="p-5"
             style={{ boxShadow: "0px 4px 18px 5px rgba(0, 0, 0, 0.1)" }}
@@ -134,7 +137,7 @@ export default function Events() {
               <Tabs defaultValue="11th December 2023" className="w-full">
                 <div
                   style={borderBottom}
-                  className="bg-[#fcfcfceb] rounded-md px-5 py-2 overflow-x-auto md:overflow-x-hidden"
+                  className="bg-[#fcfcfceb] rounded-md px-5 py-2 hidden md:block"
                 >
                   <TabsList className="w-full bg-[#fcfcfceb]">
                     <TabsTrigger
@@ -169,6 +172,40 @@ export default function Events() {
                     </TabsTrigger>
                   </TabsList>
                 </div>
+                <div className="block md:hidden px-5">
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        onClick={() => setTab("11th December 2023")}
+                        className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md"
+                      >
+                        11th December 2023
+                      </button>
+                      <button
+                        onClick={() => setTab("12th December 2023")}
+                        className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md"
+                      >
+                        12th December 2023
+                      </button>
+                      <button
+                        onClick={() => setTab("13th December 2023")}
+                        className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md"
+                      >
+                        13th December 2023
+                      </button>
+                      <button
+                        onClick={() => setTab("14th December 2023")}
+                        className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md col-span-2"
+                      >
+                        14th December 2023
+                      </button>
+                      <button
+                        onClick={() => setTab("15th December 2023")}
+                        className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md"
+                      >
+                        15th December 2023
+                      </button>
+                    </div>
+                  </div>
                 <TabsContent value="11th December 2023">
                   <EventCard />
                 </TabsContent>
