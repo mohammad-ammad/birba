@@ -81,19 +81,19 @@ export default function Agenda() {
               </div>
               <div className="block md:hidden px-5">
               <div className="grid grid-cols-3 gap-2 my-2">
-                  <button className="bg-[#003756] text-white text-sm px-2 py-1 rounded-md" >GHSO23 Workshop</button>
-                  <button className="bg-[#003756] text-white text-sm px-2 py-1 rounded-md">EEC 2023</button>
-                  <button className="bg-[#003756] text-white text-sm px-2 py-1 rounded-md">TecH2 Talks</button>
-                  <button className="bg-[#003756] text-white text-sm px-2 py-1 rounded-md">Future Energy Leaders</button>
-                  <button className="bg-[#003756] text-white text-sm px-2 py-1 rounded-md">Women in Future Energies</button>
-                  <button className="bg-[#003756] text-white text-sm px-2 py-1 rounded-md">EU-GCC GHSO</button>
+                  <button className="bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md border-b-2 border-black">GHSO23 Workshop</button>
+                  <button className="bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md">EEC 2023</button>
+                  <button className="bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md">TecH2 Talks</button>
+                  <button className="bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md">Future Energy Leaders</button>
+                  <button className="bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md">Women in Future Energies</button>
+                  <button className="bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md">EU-GCC GHSO</button>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
-                  <button onClick={()=>setTab("11th December 2023")} className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md">11th December 2023</button>
-                  <button onClick={()=>setTab("12th December 2023")} className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md">12th December 2023</button>
-                  <button onClick={()=>setTab("13th December 2023")} className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md">13th December 2023</button>
-                  <button onClick={()=>setTab("14th December 2023")} className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md col-span-2">14th December 2023</button>
-                  <button onClick={()=>setTab("15th December 2023")}  className="bg-[#AE0243] text-white text-sm px-2 py-1 rounded-md">15th December 2023</button>
+                  <button onClick={()=>setTab("11th December 2023")} className={`bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md ${tab == "11th December 2023" && 'border-b-2 border-black'}`}>11th December 2023</button>
+                  <button onClick={()=>setTab("12th December 2023")} className={`bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md ${tab == "12th December 2023" && 'border-b-2 border-black'}`}>12th December 2023</button>
+                  <button onClick={()=>setTab("13th December 2023")} className={`bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md ${tab == "13th December 2023" && 'border-b-2 border-black'}`}>13th December 2023</button>
+                  <button onClick={()=>setTab("14th December 2023")} className={`bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md ${tab == "14th December 2023" && 'border-b-2 border-black'}`}>14th December 2023</button>
+                  <button onClick={()=>setTab("15th December 2023")} className={`bg-[#ffffff] text-black text-[13px] px-2 py-1 rounded-md ${tab == "15th December 2023" && 'border-b-2 border-black'}`}>15th December 2023</button>
                 </div>
               </div>
 

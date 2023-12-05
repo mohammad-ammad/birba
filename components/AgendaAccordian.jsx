@@ -27,7 +27,7 @@ const AgendaAccordian = ({ date }) => {
                     <h1>11:20 PM</h1>
                   </div>
                   <div>
-                    <p className="text-md">
+                    <p className="text-md text-left">
                       Session 1: Lorem ipsum dolor sit amet, consectetur
                       adipiscing elit
                     </p>
@@ -51,7 +51,7 @@ const AgendaAccordian = ({ date }) => {
                     <h1>11:20 PM</h1>
                   </div>
                   <div>
-                    <p className="text-md">
+                    <p className="text-md text-left">
                       Session 1: Lorem ipsum dolor sit amet, consectetur
                       adipiscing elit
                     </p>
@@ -68,7 +68,7 @@ const AgendaAccordian = ({ date }) => {
           </AccordionItem>
           <AccordionItem value="item-3" className="bg-[#003756]">
             <AccordionTrigger>
-              <div className="flex justify-start items-center gap-5 px-2">
+              <div className="flex justify-start items-center gap-5 px-5">
                 <div className="text-white font-bold text-md leading-5 pb-3">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
@@ -88,7 +88,7 @@ const AgendaAccordian = ({ date }) => {
                     <h1>11:20 PM</h1>
                   </div>
                   <div>
-                    <p className="text-md">
+                    <p className="text-md text-left">
                       Session 1: Lorem ipsum dolor sit amet, consectetur
                       adipiscing elit
                     </p>
@@ -112,7 +112,7 @@ const AgendaAccordian = ({ date }) => {
                     <h1>11:20 PM</h1>
                   </div>
                   <div>
-                    <p className="text-md">
+                    <p className="text-md text-left">
                       Session 1: Lorem ipsum dolor sit amet, consectetur
                       adipiscing elit
                     </p>

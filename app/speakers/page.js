@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,6 +17,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const bannerStyles = {
   backgroundImage: "url('/assets/r2.png')",
@@ -27,34 +29,195 @@ const bannerStyles = {
   width: "100%",
 };
 export default function Speakers() {
+  const data = [
+    {
+      type: "Ministerial Speakers",
+      img: "/assets/p1.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip 1",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Strategic Conference Speakers",
+      img: "/assets/p1.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Strategic Conference Speakers",
+      img: "/assets/p2.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Hydrogen Strategic Speakers",
+      img: "/assets/p1.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Hydrogen Strategic Speakers",
+      img: "/assets/p2.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Hydrogen Strategic Speakers",
+      img: "/assets/p3.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Hydrogen Strategic Speakers",
+      img: "/assets/p4.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Hydrogen Strategic Speakers",
+      img: "/assets/p4.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Hydrogen Strategic Speakers",
+      img: "/assets/p5.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Decarbonisation Conference Speakers",
+      img: "/assets/p1.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Decarbonisation Conference Speakers",
+      img: "/assets/p2.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Decarbonisation Conference Speakers",
+      img: "/assets/p2.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Technical Conference Speakers",
+      img: "/assets/p1.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+    {
+      type: "Technical Conference Speakers",
+      img: "/assets/p2.png",
+      title: "Speaker",
+      name: "Johnathan N. Killip",
+      bio: "Economy Scientist - Infulencer",
+    },
+  ];
+
+  const [speakers, setSpeakers] = useState(data);
+  const [filterValue, setFilterValue] = useState("");
+  const [filterCheckBox, setFilterCheckbox] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleFilter = () => {
+    setLoading(true);
+    let filteredData = data;
+    console.log(filterCheckBox, filterValue)
+    if (filterValue) {
+      filteredData = filteredData.filter((item) => item.name === filterValue);
+    }
+
+    if (filterCheckBox) {
+      filteredData = filteredData.filter(
+        (item) => item.type === filterCheckBox
+      );
+    }
+    setLoading(false);
+    setSpeakers(filteredData);
+  };
+  const onReset = () => {
+    setFilterValue("");
+    setFilterCheckbox("");
+    setSpeakers(data);
+  };
+
   return (
-    <div className="pt-20 bg-[#f8f8f8]">
+    <div className="py-20 bg-[#f8f8f8]">
       <div style={bannerStyles}>
         <div className="text-3xl font-bold">Speakers</div>
       </div>
 
       <section className="flex flex-col md:flex-row justify-center items-start gap-5 px-5 md:px-10 pt-10">
         <div className="hidden md:block w-full md:w-[30%] bg-white">
-          <SpeakerFilterBox isShadow={true} />
+          <SpeakerFilterBox
+            isShadow={true}
+            setFilterValue={setFilterValue}
+            filterValue={filterValue}
+            filterCheckBox={filterCheckBox}
+            setFilterCheckbox={setFilterCheckbox}
+            handleFilter={handleFilter}
+            onReset={onReset}
+          />
         </div>
         <div className="block md:hidden w-full">
           <AlertDialog className="w-full">
-            <AlertDialogTrigger className="inline-flex justify-end items-center w-full">
-              <p class="text-md text-[#AE0243] cursor-pointer">Filter</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-4 h-4 text-[#AE0243] cursor-pointer"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5"
+            <AlertDialogTrigger className="flex justify-between items-center w-full">
+              <div className="flex justify-start items-center my-3 border border-gray-300 rounded-md p-2 w-[80%]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 text-[#818C93]"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="search"
+                  className="ml-2 w-full px- outline-none bg-inherit"
+                  value={filterValue}
+                  onChange={(e) => setFilterValue(e.target.value)}
                 />
-              </svg>
+              </div>
+              <div className="inline-flex justify-end items-center w-[20%]">
+                <p class="text-md text-[#AE0243] cursor-pointer">Filter</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 text-[#AE0243] cursor-pointer"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5"
+                  />
+                </svg>
+              </div>
             </AlertDialogTrigger>
             <AlertDialogContent className="w-80 p-0">
               <AlertDialogHeader>
@@ -74,7 +237,14 @@ export default function Speakers() {
                     />
                   </svg>
                 </AlertDialogCancel>
-                <SpeakerFilterBox />
+                <SpeakerFilterBox
+                  setFilterValue={setFilterValue}
+                  filterValue={filterValue}
+                  filterCheckBox={filterCheckBox}
+                  setFilterCheckbox={setFilterCheckbox}
+                  handleFilter={handleFilter}
+                  onReset={onReset}
+                />
               </AlertDialogHeader>
             </AlertDialogContent>
           </AlertDialog>
@@ -91,224 +261,281 @@ export default function Speakers() {
           {/* <hr /> */}
           <div className="my-5 flex justify-center items-center flex-col">
             {/* <Image src="/assets/a2.png" width={100} height={100} /> */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-2">
-              {"a".split("").map((item, index) => (
-                <Dialog>
-                  <DialogTrigger>
-                    <div
-                      className="flex justify-start items-center gap-2 rounded-md my-2 p-5"
-                      style={{
-                        boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
-                      }}
-                      key={index}
-                    >
-                      <div>
-                        <Image
-                          src={`/assets/p${index + 1}.png`}
-                          alt="profile"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold">Speaker</p>
-                        <h1 className="text-[14px] font-bold">
-                          Johnathan N. Killip
-                        </h1>
-                        <p className="text-[9px] font-semibold">
-                          Economy Scientist - Infulencer
-                        </p>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogDescription>
-                        <DialogBox />
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
+            {speakers.filter((item) => item.type === "Ministerial Speakers")
+              .length > 0 && (
+              <>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-2">
+                  {speakers
+                    .filter((item) => item.type === "Ministerial Speakers")
+                    .map((item, index) => (
+                      <Dialog>
+                        <DialogTrigger>
+                          <div
+                            className="flex flex-col md:flex-row justify-start items-center gap-2 rounded-md my-2 p-5 min-w-[300px] md:min-w-full"
+                            style={{
+                              boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
+                            }}
+                            key={index}
+                          >
+                            <div>
+                              <Image
+                                src={item.img}
+                                alt="profile"
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-semibold">
+                                {item.title}
+                              </p>
+                              <h1 className="text-[14px] font-bold">
+                                {item.name}
+                              </h1>
+                              <p className="text-[9px] font-semibold">
+                                {item.bio}
+                              </p>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogDescription>
+                              <DialogBox />
+                            </DialogDescription>
+                          </DialogHeader>
+                        </DialogContent>
+                      </Dialog>
+                    ))}
+                </div>
+                <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+              </>
+            )}
 
-            <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+            {speakers.filter(
+              (item) => item.type === "Strategic Conference Speakers"
+            ).length > 0 && (
+              <>
+                <Image src="/assets/a1.png" width={100} height={100} />
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-2">
+                  {speakers
+                    .filter(
+                      (item) => item.type === "Strategic Conference Speakers"
+                    )
+                    .map((item, index) => (
+                      <Dialog>
+                        <DialogTrigger>
+                          <div
+                            className="flex flex-col md:flex-row justify-start items-center gap-2 rounded-md my-2 p-5 min-w-[300px] md:min-w-full"
+                            style={{
+                              boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
+                            }}
+                            key={index}
+                          >
+                            <div>
+                              <Image
+                                src={item.img}
+                                alt="profile"
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-semibold">
+                                {item.title}
+                              </p>
+                              <h1 className="text-[14px] font-bold">
+                                {item.name}
+                              </h1>
+                              <p className="text-[9px] font-semibold">
+                                {item.bio}
+                              </p>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogDescription>
+                              <DialogBox />
+                            </DialogDescription>
+                          </DialogHeader>
+                        </DialogContent>
+                      </Dialog>
+                    ))}
+                </div>
 
-            <Image src="/assets/a1.png" width={100} height={100} />
-            <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-2">
-              {"ab".split("").map((item, index) => (
-                <Dialog>
-                  <DialogTrigger>
-                    <div
-                      className="flex justify-start items-center gap-2 rounded-md my-2 p-5 "
-                      style={{
-                        boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
-                      }}
-                      key={index}
-                    >
-                      <div>
-                        <Image
-                          src={`/assets/p${index + 1}.png`}
-                          alt="profile"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold">Speaker</p>
-                        <h1 className="text-[14px] font-bold">
-                          Johnathan N. Killip
-                        </h1>
-                        <p className="text-[9px] font-semibold">
-                          Economy Scientist - Infulencer
-                        </p>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogDescription>
-                        <DialogBox />
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
+                <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+              </>
+            )}
 
-            <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+            {speakers.filter(
+              (item) => item.type === "Hydrogen Strategic Speakers"
+            ).length > 0 && (
+              <>
+                <Image src="/assets/a3.png" width={100} height={100} />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-2">
+                  {speakers
+                    .filter(
+                      (item) => item.type === "Hydrogen Strategic Speakers"
+                    )
+                    .map((item, index) => (
+                      <Dialog>
+                        <DialogTrigger>
+                          <div
+                            className="flex flex-col md:flex-row justify-start items-center gap-2 rounded-md my-2 p-5 min-w-[300px] md:min-w-full"
+                            style={{
+                              boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
+                            }}
+                            key={index}
+                          >
+                            <div>
+                              <Image
+                                src={item.img}
+                                alt="profile"
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-semibold">
+                                {item.title}
+                              </p>
+                              <h1 className="text-[14px] font-bold">
+                                {item.name}
+                              </h1>
+                              <p className="text-[9px] font-semibold">
+                                {item.bio}
+                              </p>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogDescription>
+                              <DialogBox />
+                            </DialogDescription>
+                          </DialogHeader>
+                        </DialogContent>
+                      </Dialog>
+                    ))}
+                </div>
 
-            <Image src="/assets/a3.png" width={100} height={100} />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-2">
-              {"abcdef".split("").map((item, index) => (
-                <Dialog>
-                  <DialogTrigger>
-                    <div
-                      className="flex justify-start items-center gap-2 rounded-md my-2 p-5"
-                      style={{
-                        boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
-                      }}
-                      key={index}
-                    >
-                      <div>
-                        <Image
-                          src={`/assets/p${index + 1}.png`}
-                          alt="profile"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold">Speaker</p>
-                        <h1 className="text-[14px] font-bold">
-                          Johnathan N. Killip
-                        </h1>
-                        <p className="text-[9px] font-semibold">
-                          Economy Scientist - Infulencer
-                        </p>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogDescription>
-                        <DialogBox />
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
+                <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+              </>
+            )}
 
-            <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+            {speakers.filter(
+              (item) => item.type === "Decarbonisation Conference Speakers"
+            ).length > 0 && (
+              <>
+                <Image src="/assets/a4.png" width={100} height={100} />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-2">
+                  {speakers
+                    .filter(
+                      (item) =>
+                        item.type === "Decarbonisation Conference Speakers"
+                    )
+                    .map((item, index) => (
+                      <Dialog>
+                        <DialogTrigger>
+                          <div
+                            className="flex flex-col md:flex-row justify-start items-center gap-2 rounded-md my-2 p-5 min-w-[300px] md:min-w-full"
+                            style={{
+                              boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
+                            }}
+                            key={index}
+                          >
+                            <div>
+                              <Image
+                                src={item.img}
+                                alt="profile"
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-semibold">
+                                {item.title}
+                              </p>
+                              <h1 className="text-[14px] font-bold">
+                                {item.name}
+                              </h1>
+                              <p className="text-[9px] font-semibold">
+                                {item.bio}
+                              </p>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogDescription>
+                              <DialogBox />
+                            </DialogDescription>
+                          </DialogHeader>
+                        </DialogContent>
+                      </Dialog>
+                    ))}
+                </div>
 
-            <Image src="/assets/a4.png" width={100} height={100} />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-2">
-              {"abc".split("").map((item, index) => (
-                <Dialog>
-                  <DialogTrigger>
-                    <div
-                      className="flex justify-start items-center gap-2 rounded-md my-2 p-5"
-                      style={{
-                        boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
-                      }}
-                      key={index}
-                    >
-                      <div>
-                        <Image
-                          src={`/assets/p${index + 1}.png`}
-                          alt="profile"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold">Speaker</p>
-                        <h1 className="text-[14px] font-bold">
-                          Johnathan N. Killip
-                        </h1>
-                        <p className="text-[9px] font-semibold">
-                          Economy Scientist - Infulencer
-                        </p>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogDescription>
-                        <DialogBox />
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
+                <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+              </>
+            )}
 
-            <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+            {speakers.filter(
+              (item) => item.type === "Technical Conference Speakers"
+            ).length > 0 && (
+              <>
+                <Image src="/assets/a2.png" width={100} height={100} />
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-2">
+                  {speakers
+                    .filter(
+                      (item) => item.type === "Technical Conference Speakers"
+                    )
+                    .map((item, index) => (
+                      <Dialog>
+                        <DialogTrigger>
+                          <div
+                            className="flex flex-col md:flex-row justify-start items-center gap-2 rounded-md my-2 p-5 min-w-[300px] md:min-w-full"
+                            style={{
+                              boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
+                            }}
+                            key={index}
+                          >
+                            <div>
+                              <Image
+                                src={item.img}
+                                alt="profile"
+                                width={100}
+                                height={100}
+                              />
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-semibold">
+                                {item.title}
+                              </p>
+                              <h1 className="text-[14px] font-bold">
+                                {item.name}
+                              </h1>
+                              <p className="text-[9px] font-semibold">
+                                {item.bio}
+                              </p>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogDescription>
+                              <DialogBox />
+                            </DialogDescription>
+                          </DialogHeader>
+                        </DialogContent>
+                      </Dialog>
+                    ))}
+                </div>
 
-            <Image src="/assets/a2.png" width={100} height={100} />
-            <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-2">
-              {"ab".split("").map((item, index) => (
-                <Dialog>
-                  <DialogTrigger>
-                    <div
-                      className="flex justify-start items-center gap-2 rounded-md my-2 p-5"
-                      style={{
-                        boxShadow: "0px 4px 18px 0px rgba(0, 0, 0, 0.1)",
-                      }}
-                      key={index}
-                    >
-                      <div>
-                        <Image
-                          src={`/assets/p${index + 1}.png`}
-                          alt="profile"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold">Speaker</p>
-                        <h1 className="text-[14px] font-bold">
-                          Johnathan N. Killip
-                        </h1>
-                        <p className="text-[9px] font-semibold">
-                          Economy Scientist - Infulencer
-                        </p>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogDescription>
-                        <DialogBox />
-                      </DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
-
-            <div className="w-full h-[1px] bg-[#8B8B8B]"></div>
+                <div className="w-full h-[1px] bg-[#8B8B8B]"></div>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -316,7 +543,14 @@ export default function Speakers() {
   );
 }
 
-const SpeakerFilterBox = ({ isShadow }) => {
+const SpeakerFilterBox = ({
+  isShadow,
+  filterValue,
+  setFilterValue,
+  setFilterCheckbox,
+  handleFilter,
+  onReset,
+}) => {
   return (
     <div
       className="p-5"
@@ -376,6 +610,8 @@ const SpeakerFilterBox = ({ isShadow }) => {
           type="text"
           placeholder="search"
           className="ml-2 w-full px- outline-none"
+          value={filterValue}
+          onChange={(e) => setFilterValue(e.target.value)}
         />
       </div>
       <hr />
@@ -401,40 +637,63 @@ const SpeakerFilterBox = ({ isShadow }) => {
         <div>
           <ul>
             <li className="flex justify-start items-center gap-2 my-1">
-              <input type="checkbox" />
+              <input type="checkbox" value="Ministerial Speakers"
+                onChange={(e) => setFilterCheckbox(e.target.value)} />
               <p className="text-sm text-[#555555]">Ministerial Speakers</p>
             </li>
             <li className="flex justify-start items-center gap-2 my-1">
-              <input type="checkbox" />
+              <input type="checkbox" value="Strategic Conference Speakers"
+                onChange={(e) => setFilterCheckbox(e.target.value)} />
               <p className="text-sm text-[#555555]">
                 Strategic Conference Speakers
               </p>
             </li>
             <li className="flex justify-start items-center gap-2 my-1">
-              <input type="checkbox" />
+              <input type="checkbox" value="Hydrogen Strategic Speakers"
+                onChange={(e) => setFilterCheckbox(e.target.value)} />
               <p className="text-sm text-[#555555]">
                 Hydrogen Strategic Speakers
               </p>
             </li>
             <li className="flex justify-start items-center gap-2 my-1">
-              <input type="checkbox" />
+              <input type="checkbox" value="Decarbonisation Conference Speakers"
+                onChange={(e) => setFilterCheckbox(e.target.value)} />
               <p className="text-sm text-[#555555]">
                 Decarbonisation Conference Speakers
               </p>
             </li>
             <li className="flex justify-start items-center gap-2 my-1">
-              <input type="checkbox" />
+              <input type="checkbox" value="Technical Conference Speakers"
+                onChange={(e) => setFilterCheckbox(e.target.value)} />
               <p className="text-sm text-[#555555]">
                 Technical Conference Speakers
               </p>
             </li>
             <li className="flex justify-start items-center gap-2 my-1">
-              <input type="checkbox" />
+              <input type="checkbox" value="ADNOC Trading Forum Speakers"
+                onChange={(e) => setFilterCheckbox(e.target.value)} />
               <p className="text-sm text-[#555555]">
                 ADNOC Trading Forum Speakers
               </p>
             </li>
           </ul>
+          <div className="flex justify-center items-center gap-2 my-2">
+            <button
+              type="button"
+              onClick={onReset}
+              className="w-full md:w-[168px] h-[39px] text-[#6B7280] text-[12px] rounded-md"
+              style={{ border: "1px solid rgba(202, 219, 220, 1)" }}
+            >
+              Clear All
+            </button>
+            <button
+              type="button"
+              onClick={handleFilter}
+              className="w-full md:w-[168px] h-[39px] bg-[#003756] text-[12px] text-white rounded-md"
+            >
+              Apply
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -443,24 +702,28 @@ const SpeakerFilterBox = ({ isShadow }) => {
 
 const DialogBox = () => {
   return (
-    <div className="flex justify-start items-start gap-5">
+    <div className="flex flex-col md:flex-row justify-centers md:justify-start items-center md:items-start gap-5">
       <div>
         <Image src="/assets/p1.png" width={100} height={100} />
         <Image src="/assets/a1.png" width={100} height={100} className="my-3" />
       </div>
-      <div className="w-full inline-flex justify-start items-start flex-col">
+      <div className="w-full inline-flex justify-start items-center md:items-start flex-col">
         <div>
-          <p className="text-[10px] font-semibold text-black text-left">Speaker</p>
+          <p className="text-[10px] font-semibold text-black md:text-left">
+            Speaker
+          </p>
           <h1 className="text-[14px] font-bold text-black">
             Johnathan N. Killip
           </h1>
-          <p className="text-[9px] font-semibold text-black">
+          <p className="text-[9px] font-semibold text-black mb-3">
             Economy Scientist - Infulencer
           </p>
         </div>
-        <hr />
-        <p className="text-[10px] font-bold">Is speaking at</p>
-        <p className="text-[14px] font-bold text-[#003756]">The event and session name</p>
+        <div className="w-full h-[1px] bg-black"></div>
+        <p className="text-[14px] font-bold text-left mt-3">Is speaking at</p>
+        <p className="text-[14px] font-bold text-[#003756]">
+          The event and session name
+        </p>
         <ul className="flex justify-start items-start flex-col">
           <li className="text-[10px] text-gray-600 inline-flex justify-start items-center gap-1">
             <svg
@@ -519,7 +782,9 @@ const DialogBox = () => {
             <p>10:30AM - 11:30AM GMT</p>
           </li>
         </ul>
-        <p className="text-[14px] font-bold text-[#003756]">The event and session name</p>
+        <p className="text-[14px] font-bold text-[#003756]">
+          The event and session name
+        </p>
         <ul className="flex justify-start items-start flex-col">
           <li className="text-[10px] text-gray-600 inline-flex justify-start items-center gap-1">
             <svg

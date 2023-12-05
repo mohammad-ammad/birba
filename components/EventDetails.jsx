@@ -3,7 +3,7 @@ import React from "react";
 
 const EventDetails = () => {
   return (
-    <div className="md:pl-24 md:pr-10">
+    <div className="pl-[100px] md:pl-24 md:pr-10">
       <p className="text-[12px] text-left">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et
         tristique arcu. Proin tristique varius quam sed pharetra. Praesent
@@ -74,7 +74,7 @@ const EventDetails = () => {
       <div className="md:w-[70%]">
         <h1 className="text-[12px] font-semibold">Speakers:</h1>
         <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
+            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2 w-[124px] md:w-full" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
                 <div>
                     <Image src="/assets/p1.png" width={50} height={50} className="rounded-full" />
                 </div>
@@ -83,7 +83,7 @@ const EventDetails = () => {
                     <p className="text-[10px]">Lorem Speaker</p>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
+            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2 w-[124px] md:w-full" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
                 <div>
                     <Image src="/assets/p1.png" width={50} height={50} className="rounded-full" />
                 </div>
@@ -94,7 +94,7 @@ const EventDetails = () => {
             </div>
         </div>
         <div className="grid grid-cols-2 gap-4 my-2">
-            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
+            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2 w-[124px] md:w-full" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
                 <div>
                     <Image src="/assets/p1.png" width={50} height={50} className="rounded-full" />
                 </div>
@@ -103,7 +103,7 @@ const EventDetails = () => {
                     <p className="text-[10px]">Lorem Speaker</p>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
+            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center rounded-md p-2 w-[124px] md:w-full" style={{boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.08)"}}>
                 <div>
                     <Image src="/assets/p1.png" width={50} height={50} className="rounded-full" />
                 </div>

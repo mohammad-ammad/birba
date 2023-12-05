@@ -3,15 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const LandingAgendaCard = ({ item }) => {
+const LandingAgendaCard = ({ item, index, cardState, setCardState }) => {
   return (
-    <div className="bg-white p-5 cursor-pointer mb-5" style={{boxShadow: item.isOpen ? "0px 0px 8px 0px rgba(174, 2, 67, 0.5)" : "", borderBottom: item.isOpen ? "3px solid #AE0243" : ""}}>
+    <div className="bg-white p-5 cursor-pointer mb-5 min-w-[252px] md:min-w-[auto]" style={{boxShadow: cardState === index ? "0px 0px 8px 0px rgba(174, 2, 67, 0.5)" : "", borderBottom: cardState === index ? "3px solid #AE0243" : ""}} onClick={()=>setCardState(index)}>
       <span className={`${item.isOpen ? 'bg-[#AE0243]' : 'bg-[#638497]'} text-sm px-3 py-1 rounded-md text-white`}>{item.isOpen ? "Open" : "Comming Soon"}</span>
       <div className="flex justify-between items-start mt-3">
         <div className={`${item.isOpen ? 'text-[#AE0243]' : 'text-[#638497]'} font-bold text-lg leading-5`}>
-          <h1>{item.date.slice(0, 4)}</h1>
-          <h1>{item.date.slice(4, 14)}</h1>
-          <h1>{item.date.slice(14, 18)}</h1>
+          <h1>{item.date}</h1>
+          <h1>{item.month}</h1>
+          <h1 className="font-normal">{item.year}</h1>
         </div>
         <p>
           <Link
