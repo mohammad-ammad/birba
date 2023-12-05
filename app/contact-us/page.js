@@ -67,7 +67,7 @@ export default function ContactUs() {
   
   
   return (
-    <div className="pt-20 bg-[#f8f8f8]">
+    <div className="py-20 bg-[#f8f8f8]">
       <div style={bannerStyles}>
         <div className="text-3xl font-bold">Contact Us</div>
       </div>
@@ -234,58 +234,8 @@ export default function ContactUs() {
         className="block md:hidden px-5 mt-5 pb-5"
       >
         <div className="p-5 rounded-md bg-white" style={{ boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.15)" }}>
-          <form className="px-5" onSubmit={submitHandler}>
-            <div className="flex justify-start items-start flex-col my-5">
-              <label className="text-black text-sm font-semibold">
-                Full Name
-              </label>
-              <input
-                type="text"
-                placeholder="Write your full name"
-                name="fullName"
-                value={formObj.fullName}
-                      onChange={(e)=>onchangeHandler(e)}
-                className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-col">
-              <label className="text-black text-sm font-semibold">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formObj.email}
-                      onChange={(e)=>onchangeHandler(e)}
-                placeholder="Write your Email"
-                className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-col my-5">
-              <label className="text-black text-sm font-semibold">
-                Message
-              </label>
-              <textarea
-                rows={2}
-                cols={5}
-                name="message"
-                value={formObj.message}
-                      onChange={(e)=>onchangeHandler(e)}
-                placeholder="Write your message here"
-                className="w-full outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
-              ></textarea>
-            </div>
-            <div className="flex justify-start items-center">
-              <button
-                type="submit"
-                className="bg-[#AE0243] w-[100px] h-[40px] shadow-md text-white"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
 
-          <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
-
-          <div className="">
+        <div className="">
                 <ul>
                   <li className="flex justify-start items-center my-10">
                     <p>
@@ -378,6 +328,60 @@ export default function ContactUs() {
                   </li>
                 </ul>
               </div>
+         
+
+          <div className="w-full h-[1px] bg-[#8B8B8B] my-5"></div>
+
+          <form className="px-5" onSubmit={submitHandler}>
+            <div className="flex justify-start items-start flex-col my-5">
+              <label className="text-black text-sm font-semibold">
+                Full Name
+              </label>
+              <input
+                type="text"
+                placeholder="Write your full name"
+                name="fullName"
+                value={formObj.fullName}
+                      onChange={(e)=>onchangeHandler(e)}
+                className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
+              />
+            </div>
+            <div className="flex justify-start items-start flex-col">
+              <label className="text-black text-sm font-semibold">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formObj.email}
+                      onChange={(e)=>onchangeHandler(e)}
+                placeholder="Write your Email"
+                className="w-full h-[30px] outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
+              />
+            </div>
+            <div className="flex justify-start items-start flex-col my-5">
+              <label className="text-black text-sm font-semibold">
+                Message
+              </label>
+              <textarea
+                rows={2}
+                cols={5}
+                name="message"
+                value={formObj.message}
+                      onChange={(e)=>onchangeHandler(e)}
+                placeholder="Write your message here"
+                className="w-full outline-none border border-[#D1D5DB] px-2 py-5 rounded-md text-black text-sm"
+              ></textarea>
+            </div>
+            <div className="flex justify-start items-center">
+              <button
+                type="submit"
+                className="bg-[#AE0243] w-[100px] h-[40px] shadow-md text-white"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+
+          
         </div>
       </section>
     </div>

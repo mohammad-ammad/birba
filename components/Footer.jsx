@@ -4,7 +4,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className='bg-[#f8f8f8] min-h-[100px] flex justify-center items-center flex-col py-5'>
+    <footer className='bg-[#f8f8f8] min-h-[100px] hidden md:flex justify-center items-center flex-col py-5'>
         <div>
             <Image src="/assets/footer.png" alt='footer' width={40} height={60}/>
         </div>
