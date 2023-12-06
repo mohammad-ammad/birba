@@ -30,12 +30,12 @@ const EventCard = () => {
           <AccordionItem value="item-1">
             <AccordionTrigger>
               <div className="flex justify-start items-center gap-5 px-2">
-                <div className="text-[#AE0243] font-bold text-md leading-5 pb-3">
+                <div className="text-[#AE0243] font-bold text-md leading-5 pb-3 min-w-[80px]">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
                 </div>
                 <div>
-                  <p className="text-md">
+                  <p className="text-md text-left">
                     Session 1: Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit
                   </p>
@@ -49,12 +49,12 @@ const EventCard = () => {
           <AccordionItem value="item-2">
             <AccordionTrigger>
               <div className="flex justify-start items-center gap-5 px-2">
-                <div className="text-[#003756] font-bold text-md leading-5 pb-3">
+                <div className="text-[#003756] font-bold text-md leading-5 pb-3 min-w-[80px]">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
                 </div>
                 <div>
-                  <p className="text-md">
+                  <p className="text-md text-left">
                     Session 1: Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit
                   </p>
@@ -66,9 +66,9 @@ const EventCard = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="bg-[#003756]">
-            <AccordionTrigger>
+            <AccordionTrigger isIcon={false}>
               <div className="flex justify-start items-center gap-5 px-2">
-                <div className="text-white font-bold text-md leading-5 pb-3">
+                <div className="text-white font-bold text-md leading-5 pb-3 min-w-[80px] text-left">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
                 </div>
@@ -77,19 +77,16 @@ const EventCard = () => {
                 </div>
               </div>
             </AccordionTrigger>
-            <AccordionContent>
-            <EventDetails/>
-            </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>
               <div className="flex justify-start items-center gap-5 px-2">
-                <div className="text-[#003756] font-bold text-md leading-5 pb-3">
+                <div className="text-[#003756] font-bold text-md leading-5 pb-3 min-w-[80px]">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
                 </div>
                 <div>
-                  <p className="text-md">
+                  <p className="text-md text-left">
                     Session 1: Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit
                   </p>
@@ -103,12 +100,12 @@ const EventCard = () => {
           <AccordionItem value="item-5">
             <AccordionTrigger>
               <div className="flex justify-start items-center gap-5 px-2">
-                <div className="text-[#003756] font-bold text-md leading-5 pb-3">
+                <div className="text-[#003756] font-bold text-md leading-5 pb-3 min-w-[80px]">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
                 </div>
                 <div>
-                  <p className="text-md">
+                  <p className="text-md text-left">
                     Session 1: Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit
                   </p>

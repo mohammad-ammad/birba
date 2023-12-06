@@ -22,7 +22,7 @@ const AgendaAccordian = ({ date }) => {
             <AccordionTrigger>
               <div className="flex flex-col md:flex-row justify-between items-center gap-5 px-2 w-full">
                 <div className="flex justify-start items-center gap-5">
-                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3">
+                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3 min-w-[80px]">
                     <h1>10:00 AM</h1>
                     <h1>11:20 PM</h1>
                   </div>
@@ -46,7 +46,7 @@ const AgendaAccordian = ({ date }) => {
           <AccordionTrigger>
               <div className="flex flex-col md:flex-row justify-between items-center gap-5 px-2 w-full">
                 <div className="flex justify-start items-center gap-5">
-                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3">
+                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3 min-w-[80px]">
                     <h1>10:00 AM</h1>
                     <h1>11:20 PM</h1>
                   </div>
@@ -67,9 +67,9 @@ const AgendaAccordian = ({ date }) => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="bg-[#003756]">
-            <AccordionTrigger>
+            <AccordionTrigger isIcon={false}>
               <div className="flex justify-start items-center gap-5 px-5">
-                <div className="text-white font-bold text-md leading-5 pb-3">
+                <div className="text-white font-bold text-md leading-5 pb-3 min-w-[80px] text-left">
                   <h1>10:00 AM</h1>
                   <h1>11:20 PM</h1>
                 </div>
@@ -83,7 +83,7 @@ const AgendaAccordian = ({ date }) => {
           <AccordionTrigger>
               <div className="flex flex-col md:flex-row justify-between items-center gap-5 px-2 w-full">
                 <div className="flex justify-start items-center gap-5">
-                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3">
+                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3 min-w-[80px]">
                     <h1>10:00 AM</h1>
                     <h1>11:20 PM</h1>
                   </div>
@@ -107,7 +107,7 @@ const AgendaAccordian = ({ date }) => {
           <AccordionTrigger>
               <div className="flex flex-col md:flex-row justify-between items-center gap-5 px-2 w-full">
                 <div className="flex justify-start items-center gap-5">
-                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3">
+                  <div className="text-[#AE0243] font-bold text-md leading-5 pb-3 min-w-[80px]">
                     <h1>10:00 AM</h1>
                     <h1>11:20 PM</h1>
                   </div>

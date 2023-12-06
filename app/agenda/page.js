@@ -28,7 +28,7 @@ export default function Agenda() {
       <section className="bg-[#f8f8f8] px-0 md:px-40 pt-10">
         <div>
           <div className="flex justify-between items-center px-5 py-3 rounded-md bg-[#fcfcfceb]">
-            <h1 className="text-lg font-bold mb-5 text-center md:text-left">
+            <h1 className="text-lg font-bold text-center md:text-left">
               Event Schedule
             </h1>
             <p>
