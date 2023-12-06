@@ -105,7 +105,7 @@ export default function Events() {
         <div className="w-full md:w-[70%]">
           <div>
             <div className="flex justify-between items-center px-5 py-3 rounded-md bg-[#fcfcfceb]">
-              <h1 className="text-lg font-bold mb-5 text-center md:text-left">
+              <h1 className="text-lg font-bold text-center md:text-left">
                 Event Schedule
               </h1>
               <p>
